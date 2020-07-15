@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState} from "react";
 import api from "../../../util/api";
 
-function encontre() {
+function EncontreConta() {
+  const [cpf, setCpf]= useState("");
+  const [email, setEmail] =useState ("");
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = await api.post("/redefinirSenha/");
-    console.log(response);
+   await api.post("/cadastro/encontreconta", {cpf,email});
+  
   }
   return (
     <div>
@@ -15,15 +18,15 @@ function encontre() {
         <h1>Encontre sua conta</h1>
         <br />
         <label>cpf: </label>
-        <input type="text" name="cpf" id="cpf" />
+        <input type="text" name="cpf" id="cpf"  onChange={event => setCpf(event.target.value)} />
         <br />
         <label>E-mail: </label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" onChange={event => setEmail(event.target.value)}/>
         <br />
-        <button type="button"className="btn btn-primary">Enviar</button>
+        <button type="submit"className="btn btn-primary">Enviar</button>
         </div>
       </form>
     </div>
   );
 }
-export default encontre;
+export default EncontreConta;

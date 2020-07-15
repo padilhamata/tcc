@@ -19,7 +19,7 @@ import com.pizza.backpizza.repository.CrudRepository;
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/api/crud")
-public class ProdutoResource {
+public class CrudResource {
 
 	@Autowired
 	CrudRepository crudRepository;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../../../util/api";
 import { Link } from "react-router-dom";
+import md5 from "md5";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -8,7 +9,8 @@ function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let response = await api.post("/login", { email, senha });
+    setSenha(md5(senha));
+    let response = await api.post("/cadastro/logon", { email, senha });
     console.log(response);
   }
 
@@ -49,7 +51,7 @@ function Login() {
           </div>
         </div>
         <br />
-        <Link to="/redefinirSenha">Esqueceu a senha?</Link>
+        <Link to="/encontreconta">Esqueceu a senha?</Link>
         <br />
         <Link to="/inscrever">Inscrever</Link>
       </div>

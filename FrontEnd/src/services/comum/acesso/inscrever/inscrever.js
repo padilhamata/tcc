@@ -3,7 +3,7 @@ import api from "../../../util/api";
 import md5 from "md5";
 
 
-function Inscrever() {
+function Cadastro() {
   const [nome, setNome] = useState("");
   const [sobreNome, setSobreNome] = useState("");
   const [cpf, setCpf] = useState("");
@@ -76,4 +76,4 @@ function Inscrever() {
     </div>
   );
 }
-export default Inscrever
+export default Cadastro
