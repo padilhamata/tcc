@@ -11,12 +11,8 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Cadastro implements Serializable{
+public class Cadastro {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

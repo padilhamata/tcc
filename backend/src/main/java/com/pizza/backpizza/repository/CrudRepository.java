@@ -9,5 +9,7 @@ import com.pizza.backpizza.models.Crud;
 public interface CrudRepository extends JpaRepository<Crud, Long> {
 
 	Crud findById(long id);
+	Crud findByUsername(String username);
+	
 	
 }
