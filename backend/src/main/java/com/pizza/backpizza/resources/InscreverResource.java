@@ -7,38 +7,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pizza.backpizza.models.Cadastro;
-import com.pizza.backpizza.repository.CadastroRepository;
-import com.pizza.backpizza.util.EnviarEmail;
-
-import lombok.var;
+import com.pizza.backpizza.models.Cliente;
+import com.pizza.backpizza.models.Inscrever;
+import com.pizza.backpizza.repository.ClienteRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value= "/api/cadastro")
-public class InscricaoResource {
+@RequestMapping(value= "/api/inscrever")
+public class InscreverResource {
 
 	@Autowired
-	CadastroRepository cadastroRepository;
+	ClienteRepository clienteRepository;
 	
 	@PostMapping
-	public Cadastro salvaInscricao(@RequestBody Cadastro cadastro) {
-		return cadastroRepository.save(cadastro);
+	public Inscrever salvaInscricao(@RequestBody Cliente cliente) {
+		 clienteRepository.save(cliente);
+		return null;
 	}
 	
 	@CrossOrigin
 	@PostMapping(value = "/logon")
-	public Cadastro verificaEmail (@RequestBody Cadastro cadastro) {
-		return cadastroRepository.findcadastroforemailsenha(cadastro.getEmail(), cadastro.getSenha());
+	public Inscrever verificaEmail (@RequestBody Cliente cliente) {
+		clienteRepository.findcadastroforemailsenha(cliente.getEmail(), cliente.getSenha());
+		return null; 
 		
 		//Fazer autenticação
 	
 	}
 	@CrossOrigin
 	@PostMapping(value = "/encontreconta")
-	public Cadastro trocaSenha (@RequestBody Cadastro cadastro) {
-	Cadastro cadastrados = 	cadastroRepository.encontrarcadastrocpfsenha(cadastro.getCpf(),cadastro.getEmail());
-	EnviarEmail.enviarEmail(cadastrados.getEmail());
+	public Inscrever trocaSenha (@RequestBody Inscrever inscrever) {
+	/*	Inscrever cadastrados = 	InscreverRepository.encontrarcadastrocpfsenha(inscrever.getCpf(),inscrever.getEmail());
+	EnviarEmail.enviarEmail(cadastrados.getEmail());*/
 	
 	
 	return null	;

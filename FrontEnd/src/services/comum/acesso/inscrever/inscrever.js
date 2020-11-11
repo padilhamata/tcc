@@ -19,7 +19,7 @@ function Cadastro() {
   async function handleSubmit(event) {
     event.preventDefault();
       md5(setSenha);
-    const response = await api.post("/cadastro",{nome,sobreNome,cpf,telefone,avenida,cep,setor,cidade,email,senha});
+    const response = await api.post("/inscrever",{nome,sobreNome,cpf,telefone,avenida,cep,setor,cidade,email,senha});
     console.log(response);
   }
   return (

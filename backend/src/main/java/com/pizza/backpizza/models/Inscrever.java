@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Cadastro {
+public class Inscrever {
 
 
 	@Id

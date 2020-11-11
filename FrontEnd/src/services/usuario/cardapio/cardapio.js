@@ -1,7 +1,119 @@
 import React from "react";
 import { Link } from "react-router-dom";
+ import $ from "jquery";
+ import api from "../../util/api";
+ 
 
 function telaInicial() {
+
+  var pedidos =[];
+  async function submit(){
+
+    pedidos.length =0
+if ($("#atum option:selected").val() !== "escolha"){
+  pedidos.push($("#atum option:selected").val())
+}
+console.log($("#bacon option:selected").val())
+   if ($("#bacon option:selected").val() !== "escolha"){
+    pedidos.push($("#bacon option:selected").val())
+  }
+  if ($("#baiana option:selected").val() !== "escolha"){
+    pedidos.push($("#baiana option:selected").val())
+  }
+  if ($("#calabresa option:selected").val() !== "escolha"){
+    pedidos.push($("#calabresa option:selected").val())
+  }
+  if ($("#frango option:selected").val() !== "escolha"){
+    pedidos.push($("#frango option:selected").val())
+  }
+  if ($("#napolitana option:selected").val() !== "escolha"){
+    pedidos.push($("#napolitana option:selected").val())
+  }
+  if ($("#portuguesa option:selected").val() !== "escolha"){
+    pedidos.push($("#portuguesa option:selected").val())
+  }
+  if ($("#qq option:selected").val() !== "escolha"){
+    pedidos.push($("#qq option:selected").val())
+  }
+  if ($("#california option:selected").val() !== "escolha"){
+    pedidos.push($("#california option:selected").val())
+  }
+  if ($("#banana option:selected").val() !== "escolha"){
+    pedidos.push($("#banana option:selected").val())
+  }
+  if ($("#chocolate option:selected").val() !== "escolha"){
+    pedidos.push($("#chocolate option:selected").val())
+  }
+  if ($("#prestigio option:selected").val() !== "escolha"){
+    pedidos.push($("#prestigio option:selected").val())
+  }
+  if ($("#rj option:selected").val() !== "escolha"){
+    pedidos.push($("#rj option:selected").val())
+  }
+  if ($("#brigadeiro option:selected").val() !== "escolha"){
+    pedidos.push($("#brigadeiro option:selected").val())
+  }
+
+    console.log("carrinho");
+    console.log(pedidos);
+
+    await api.post("/pedido", {pedidos});
+  }
+
+  async function recomendacao(){
+    console.log("carrinho");
+    pedidos.length =0
+if ($("#atum option:selected").val() !== "escolha"){
+  pedidos.push($("#atum option:selected").val())
+}
+console.log($("#bacon option:selected").val())
+   if ($("#bacon option:selected").val() !== "escolha"){
+    pedidos.push($("#bacon option:selected").val())
+  }
+  if ($("#baiana option:selected").val() !== "escolha"){
+    pedidos.push($("#baiana option:selected").val())
+  }
+  if ($("#calabresa option:selected").val() !== "escolha"){
+    pedidos.push($("#calabresa option:selected").val())
+  }
+  if ($("#frango option:selected").val() !== "escolha"){
+    pedidos.push($("#frango option:selected").val())
+  }
+  if ($("#napolitana option:selected").val() !== "escolha"){
+    pedidos.push($("#napolitana option:selected").val())
+  }
+  if ($("#portuguesa option:selected").val() !== "escolha"){
+    pedidos.push($("#portuguesa option:selected").val())
+  }
+  if ($("#qq option:selected").val() !== "escolha"){
+    pedidos.push($("#qq option:selected").val())
+  }
+  if ($("#california option:selected").val() !== "escolha"){
+    pedidos.push($("#california option:selected").val())
+  }
+  if ($("#banana option:selected").val() !== "escolha"){
+    pedidos.push($("#banana option:selected").val())
+  }
+  if ($("#chocolate option:selected").val() !== "escolha"){
+    pedidos.push($("#chocolate option:selected").val())
+  }
+  if ($("#prestigio option:selected").val() !== "escolha"){
+    pedidos.push($("#prestigio option:selected").val())
+  }
+  if ($("#rj option:selected").val() !== "escolha"){
+    pedidos.push($("#rj option:selected").val())
+  }
+  if ($("#brigadeiro option:selected").val() !== "escolha"){
+    pedidos.push($("#brigadeiro option:selected").val())
+  }
+
+    
+    console.log(pedidos);
+
+    await api.put("/pedido", {pedidos});
+  }
+
+
   return (
     <div className="cardapio">
       <h1>Cardápio</h1>
@@ -10,15 +122,7 @@ function telaInicial() {
         <div className="col-sm-4">
           <div className=" form-check-inline">
             <label className="pizza">ATUM: </label>
-            <select className="form-control">
-              <option>Escolha</option>
-              <option>1 Pequena</option>
-              <option>2 Pequena</option>
-              <option>1 Media</option>
-              <option>2 Media</option>
-              <option>1 Grande</option>
-              <option>2 Grande</option>
-            </select>
+     
           </div>
 
           <label className="d-block">
@@ -28,15 +132,7 @@ function telaInicial() {
         <div className="col-sm-4">
           <div className=" form-check-inline">
             <label className="pizza">Napolitana:</label>
-            <select className="form-control ">
-              <option>Escolha</option>
-              <option>1 Pequena</option>
-              <option>2 Pequena</option>
-              <option>1 Media</option>
-              <option>2 Media</option>
-              <option>1 Grande</option>
-              <option>2 Grande</option>
-            </select>
+         
           </div>
           <label className="d-block ">
             Molho, mussarela, parmesão, tomate, azeitona, orégano
@@ -47,15 +143,7 @@ function telaInicial() {
       <div className="col-sm-4">
         <div className=" form-check-inline">
           <label className="pizza">Chocolate: </label>
-          <select className="form-control">
-            <option>Escolha</option>
-            <option>1 Pequena</option>
-            <option>2 Pequena</option>
-            <option>1 Media</option>
-            <option>2 Media</option>
-            <option>1 Grande</option>
-            <option>2 Grande</option>
-          </select>
+      
         </div>
         <label className="d-block">
           Creme de Leite, mussarela, Chocolate, cereja
@@ -68,15 +156,15 @@ function telaInicial() {
           <div className="col-sm-4">
             <h2>Cardapio de pizzas</h2>
             <div className=" form-check-inline">
-              <label className="pizza">ATUM: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >ATUM: </label>
+              <select className="form-control" id="atum" onClick={recomendacao}> 
+                <option value="escolha">Escolha</option>
+                <option value="atum-1P">1 Pequena</option>
+                <option value="atum-2P">2 Pequena</option>
+                <option value="atum-1m">1 Media</option>
+                <option value="atum-2P">2 Media</option>
+                <option value="atum-1g">1 Grande</option>
+                <option value="atum-2g">2 Grande</option>
               </select>
             </div>
             <p className="d-block text-center">
@@ -87,14 +175,14 @@ function telaInicial() {
 
             <div className=" form-check-inline">
               <label className="pizza">Bacon: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="bacon" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="bacon-1P">1 Pequena</option>
+                <option value="bacon-2P">2 Pequena</option>
+                <option value="bacon-1m">1 Media</option>
+                <option value="bacon-2m">2 Media</option>
+                <option value="bacon-1g">1 Grande</option>
+                <option value="bacon-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -103,15 +191,15 @@ function telaInicial() {
             <br />
 
             <div className=" form-check-inline ">
-              <label className="pizza">Baiana: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >Baiana: </label>
+              <select className="form-control" id="baiana" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="baiana-1P">1 Pequena</option>
+                <option value="baiana-2P">2 Pequena</option>
+                <option value="baiana-1m">1 Media</option>
+                <option value="baiana-2m">2 Media</option>
+                <option value="baiana-1g">1 Grande</option>
+                <option value="baiana-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block ">
@@ -120,14 +208,14 @@ function telaInicial() {
             <br />
             <div className=" form-check-inline">
               <label className="pizza">Calabresa: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="calabresa" onClick={recomendacao} >
+                <option value="escolha">Escolha</option>
+                <option value="calabresa-1P">1 Pequena</option>
+                <option value="calabresa-2P">2 Pequena</option>
+                <option value="calabresa-1m">1 Media</option>
+                <option value="calabresa-1m">2 Media</option>
+                <option value="calabresa-1g">1 Grande</option>
+                <option value="calabresa-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -136,14 +224,14 @@ function telaInicial() {
             <br />
             <div className=" form-check-inline">
               <label className="pizza">Frango:</label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="frango" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="frango-1P">1 Pequena</option>
+                <option value="frango-2P">2 Pequena</option>
+                <option value="frango-1m">1 Media</option>
+                <option value="frango-2m">2 Media</option>
+                <option value="frango-1g">1 Grande</option>
+                <option value="frango-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -152,15 +240,15 @@ function telaInicial() {
             <br />
 
             <div className=" form-check-inline">
-              <label className="pizza">Napolitana:</label>
-              <select className="form-control ">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >Napolitana:</label>
+              <select className="form-control " id="napolitana" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="napolitana-1P">1 Pequena</option>
+                <option value="napolitana-2P">2 Pequena</option>
+                <option value="napolitana-1m">1 Media</option>
+                <option value="napolitana-2m">2 Media</option>
+                <option value="napolitana-1g">1 Grande</option>
+                <option value="napolitana-1g">2 Grande</option>
               </select>
             </div>
             <label className="d-block ">
@@ -170,14 +258,14 @@ function telaInicial() {
 
             <div className=" form-check-inline">
               <label className="pizza">Portuguesa: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="portuguesa" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="portuguesa-1P">1 Pequena</option>
+                <option value="portuguesa-2P">2 Pequena</option>
+                <option value="portuguesa-1m">1 Media</option>
+                <option value="portuguesa-2m">2 Media</option>
+                <option value="portuguesa-1g">1 Grande</option>
+                <option value="portuguesa-1g">2 Grande</option>
               </select>
             </div>
             <label className="d-block ">
@@ -186,15 +274,15 @@ function telaInicial() {
             <br />
 
             <div className=" form-check-inline">
-              <label className="pizza">Quatro Queijo:</label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >Quatro Queijo:</label>
+              <select className="form-control" id="qq" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="qq-1P">1 Pequena</option>
+                <option value="qq-2P">2 Pequena</option>
+                <option value="qq-1m">1 Media</option>
+                <option value="qq-2m">2 Media</option>
+                <option value="qq-1g">1 Grande</option>
+                <option value="qq-1g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -206,14 +294,14 @@ function telaInicial() {
             <h2>Pizzas Doces</h2>
             <div className=" form-check-inline">
               <label className="pizza">California: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control"id="california" onClick={recomendacao} > 
+                <option value="escolha">Escolha</option>
+                <option value="california-1P">1 Pequena</option>
+                <option value="california-2P">2 Pequena</option>
+                <option value="california-1m">1 Media</option>
+                <option value="california-1m">2 Media</option>
+                <option value="california-1g">1 Grande</option>
+                <option value="california-1g">2 Grande</option>
               </select>
               <br />
             </div>
@@ -224,14 +312,14 @@ function telaInicial() {
 
             <div className=" form-check-inline">
               <label className="pizza">Banana: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="banana" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="banana-1P">1 Pequena</option>
+                <option value="banana-2P">2 Pequena</option>
+                <option value="banana-1m">1 Media</option>
+                <option value="banana-2m">2 Media</option>
+                <option value="banana-1g">1 Grande</option>
+                <option value="banana-1g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -240,14 +328,14 @@ function telaInicial() {
             <br />
             <div className=" form-check-inline">
               <label className="pizza">Chocolate: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control"  id="chocolate" onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="chocolate-1P">1 Pequena</option>
+                <option value="chocolate-2P">2 Pequena</option>
+                <option value="chocolate-1m">1 Media</option>
+                <option value="chocolate-1m">2 Media</option>
+                <option value="chocolate-1g">1 Grande</option>
+                <option value="chocolate-1g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -255,15 +343,15 @@ function telaInicial() {
             </label>
             <br />
             <div className=" form-check-inline">
-              <label className="pizza">Prestígio: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >Prestígio: </label>
+              <select className="form-control" id="prestigio"onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="prestígio-1P">1 Pequena</option>
+                <option value="prestígio-2P">2 Pequena</option>
+                <option value="prestígio-1m">1 Media</option>
+                <option value="prestígio-2m">2 Media</option>
+                <option value="prestígio-1g">1 Grande</option>
+                <option value="prestígio-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -271,15 +359,15 @@ function telaInicial() {
             </label>
             <br />
             <div className=" form-check-inline">
-              <label className="pizza">Romeu e julieta: </label>
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <label className="pizza" >Romeu e julieta: </label>
+              <select className="form-control" id="rj"onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="rj-1P">1 Pequena</option>
+                <option value="rj-2P">2 Pequena</option>
+                <option value="rj-1m">1 Media</option>
+                <option value="rj-2m">2 Media</option>
+                <option value="rj-1g">1 Grande</option>
+                <option value="rj-2g">2 Grande</option>
               </select>
             </div>
             <label className="d-block">
@@ -287,16 +375,16 @@ function telaInicial() {
             </label>
             <br />
             <div className=" form-check-inline">
-              <label className="pizza">Brigadeiro</label>
+              <label className="pizza" >Brigadeiro</label>
 
-              <select className="form-control">
-                <option>Escolha</option>
-                <option>1 Pequena</option>
-                <option>2 Pequena</option>
-                <option>1 Media</option>
-                <option>2 Media</option>
-                <option>1 Grande</option>
-                <option>2 Grande</option>
+              <select className="form-control" id="brigadeiro"onClick={recomendacao}>
+                <option value="escolha">Escolha</option>
+                <option value="brigadeiro-1P">1 Pequena</option>
+                <option value="brigadeiro-2P">2 Pequena</option>
+                <option value="brigadeiro-1m">1 Media</option>
+                <option value="brigadeiro-2m">2 Media</option>
+                <option value="brigadeiro-1g">1 Grande</option>
+                <option value="brigadeiro-2g">2 Grande</option>
               </select>
             </div>
             <br />
@@ -363,7 +451,8 @@ function telaInicial() {
             <label className="pizza">Cerveja Lata R$:2,50</label>
             <br />
            
-            <Link   className="btn btn-primary" to="/pagamento" >Comprar</Link>
+            {/* <Link   className="btn btn-primary" /*to="/pagamento" onClick={submit}>Comprar</Link> */}
+            <button   className="btn btn-primary"  onClick={submit}>Comprar</button> 
           </div>
         </div>
       </div>

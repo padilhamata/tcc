@@ -10,7 +10,7 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     setSenha(md5(senha));
-    let response = await api.post("/cadastro/logon", { email, senha });
+    let response = await api.post("/inscrever/logon", { email, senha });
     console.log(response);
   }
 
